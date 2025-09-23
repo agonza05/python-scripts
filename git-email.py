@@ -21,7 +21,7 @@ def run_cmd(cmd: List[str]) -> None:
     """Helper to run commands in shell and returns stdout."""
 
     try:
-        subprocess.run(cmd, text=True, capture_output=False, check=True)
+        subprocess.run(cmd, text=True, capture_output=True, check=True)
     except subprocess.CalledProcessError:
         error_and_exit()
 
@@ -32,7 +32,7 @@ def main(
         typer.Option(
             "--email",
             "-e",
-            envvar="EMAIL",
+            envvar="SCRIPT_EMAIL",
             help="i.e.: user@company.com",
         ),
     ] = "alberto@agonza.net",

@@ -6,8 +6,12 @@ Python scripts for different automations
 
 - `git-email.py`: Set the git user email address.
 - `direnv-init.py`: Initialize direnv environment.
+- `brew-upgrade.py`: Upgrade brew packages.
+- `install-scripts.py`: Create symbolic links for scripts.
 
-## Usage with uv
+## Manual installation
+
+Follow these steps to install the scripts manually using `uv`:
 
 1. Allow script to be executed:
     ```bash
