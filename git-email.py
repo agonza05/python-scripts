@@ -25,6 +25,7 @@ def run_cmd(cmd: List[str]) -> None:
     except subprocess.CalledProcessError:
         error_and_exit()
 
+# Main script
 def main(
     email: Annotated[
         str,
@@ -39,7 +40,7 @@ def main(
     """Set the git user email address."""
 
     run_cmd(["git", "config", "user.email", email])
-    typer.echo(f"Git user email set to: {email}")
+    typer.secho(f"Git user email successfully set to: {email}", fg=typer.colors.GREEN)
 
 if __name__ == "__main__":
     typer.run(main)
