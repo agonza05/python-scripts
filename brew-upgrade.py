@@ -6,10 +6,8 @@
 # ]
 # ///
 
-import subprocess
 from typing import List
 import typer
-from rich.progress import Progress, SpinnerColumn, TextColumn
 
 # Helper functions
 def error_and_exit() -> None:
@@ -21,6 +19,8 @@ def error_and_exit() -> None:
 def run_cmd(cmd: List[str]) -> None:
     """Helper to run commands in shell and returns stdout."""
 
+    import subprocess
+
     try:
         subprocess.run(cmd, text=True, capture_output=True, check=True)
     except subprocess.CalledProcessError:
@@ -29,6 +29,8 @@ def run_cmd(cmd: List[str]) -> None:
 # Main script
 def main() -> None:
     """Upgrade brew packages."""
+
+    from rich.progress import Progress, SpinnerColumn, TextColumn
 
     brew_commands = ["update", "upgrade", "cleanup"]
 

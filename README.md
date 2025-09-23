@@ -8,6 +8,15 @@ Python scripts for different automations
 - `direnv-init.py`: Initialize direnv environment.
 - `brew-upgrade.py`: Upgrade brew packages.
 - `install-scripts.py`: Create symbolic links for scripts.
+- `jinja-render.py`: Render Jinja templates.
+
+## Automatic installation
+
+Use the following command to install all the scripts automatically:
+
+```bash
+uv run --script install-scripts.py
+```
 
 ## Manual installation
 

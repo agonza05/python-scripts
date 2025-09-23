@@ -5,7 +5,6 @@
 # ]
 # ///
 
-import subprocess
 from typing import List
 from typing_extensions import Annotated
 import typer
@@ -19,6 +18,8 @@ def error_and_exit() -> None:
 
 def run_cmd(cmd: List[str]) -> None:
     """Helper to run commands in shell and returns stdout."""
+
+    import subprocess
 
     try:
         subprocess.run(cmd, text=True, capture_output=True, check=True)

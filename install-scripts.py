@@ -6,12 +6,9 @@
 # ]
 # ///
 
-import os
-import subprocess
 from typing import List
 from typing_extensions import Annotated
 import typer
-from rich.progress import Progress, SpinnerColumn, TextColumn
 
 TARGET_PATH = "~/.local/bin"
 
@@ -24,6 +21,8 @@ def error_and_exit() -> None:
 
 def run_cmd(cmd: List[str]) -> None:
     """Helper to run commands in shell and returns stdout."""
+
+    import subprocess
 
     try:
         subprocess.run(cmd, text=True, capture_output=True, check=True)
@@ -43,6 +42,9 @@ def main(
     ] = ".",
 ) -> None:
     """Create a symbolic link to the script in the specified path."""
+
+    import os
+    from rich.progress import Progress, SpinnerColumn, TextColumn
 
     if path == ".":
         path = os.getcwd()
