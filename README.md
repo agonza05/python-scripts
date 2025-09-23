@@ -8,11 +8,15 @@ Python scripts for different automations
 
 ## Usage with uv
 
-1. Create an symbolic link. Example:
+1. Allow script to be executed:
+    ```bash
+    chmod +x /path/to/python-scripts/gitemail.py
+    ```
+2. Create an symbolic link. Example:
     ```bash
     ln -s /path/to/python-scripts/gitemail.py ~/.local/bin/gitemail
     ```
-2. Verify script is installed correctly:
+3. Verify script is installed correctly:
     ```bash
     gitemail --help
     ```
