@@ -9,7 +9,7 @@ Python scripts for different automations
 - `brew-upgrade.py`: Upgrade brew packages.
 - `install-scripts.py`: Create symbolic links for scripts.
 - `jinja-render.py`: Render Jinja templates.
-- `key-gen.py`: Generate a secure password.
+- `password-generator.py`: Generate a secure password.
 
 ## Automatic installation
 

@@ -54,7 +54,7 @@ def main(
     if not is_valid:
         error_and_exit()
     typer.secho(f"Password: {password}", fg=typer.colors.BLUE)
-    typer.secho(f"Hashed password: {hashed_password}", fg=typer.colors.BLUE)
+    typer.secho(f"Hashed password: {hashed_password.decode('utf-8')}", fg=typer.colors.BLUE)
     typer.secho("Password generated successfully.", fg=typer.colors.GREEN)
 
 if __name__ == "__main__":
