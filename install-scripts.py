@@ -12,22 +12,30 @@ import typer
 
 TARGET_PATH = "~/.local/bin"
 
+
 # Helper functions
 def error_and_exit() -> None:
-    """Helper to output error code and exit application."""
-
-    typer.secho("An error has occurred.", fg=typer.colors.RED,)
+    """
+    Helper to output error code and exit application.
+    """
+    typer.secho(
+        "An error has occurred.",
+        fg=typer.colors.RED,
+    )
     raise typer.Exit(code=1)
 
-def run_cmd(cmd: List[str]) -> None:
-    """Helper to run commands in shell and returns stdout."""
 
+def run_cmd(cmd: List[str]) -> None:
+    """
+    Helper to run commands in shell and returns stdout.
+    """
     import subprocess
 
     try:
         subprocess.run(cmd, text=True, capture_output=True, check=True)
     except subprocess.CalledProcessError:
         error_and_exit()
+
 
 # Main script
 def main(
@@ -41,8 +49,9 @@ def main(
         ),
     ] = ".",
 ) -> None:
-    """Create a symbolic link to the script in the specified path."""
-
+    """
+    Create a symbolic link to the script in the specified path.
+    """
     import os
     from rich.progress import Progress, SpinnerColumn, TextColumn
 
@@ -51,7 +60,7 @@ def main(
     file_names = []
     for entry in os.listdir(os.path.expanduser(path)):
         full_path = os.path.join(os.path.expanduser(path), entry)
-        if os.path.isfile(full_path) and entry.endswith('.py'):
+        if os.path.isfile(full_path) and entry.endswith(".py"):
             file_names.append(entry[:-3])
 
     with Progress(
@@ -65,10 +74,20 @@ def main(
         for file in file_names:
             progress.console.print(f" - Link for: {file}...")
             run_cmd(["chmod", "+x", f"{path}/{file}.py"])
-            run_cmd(["ln", "-sf", f"{path}/{file}.py", os.path.expanduser(f"{TARGET_PATH}/{file}")])
+            run_cmd(
+                [
+                    "ln",
+                    "-sf",
+                    f"{path}/{file}.py",
+                    os.path.expanduser(f"{TARGET_PATH}/{file}"),
+                ]
+            )
             progress.advance(task)
 
-    typer.secho(f"Symlinks successfully created in: {TARGET_PATH}", fg=typer.colors.GREEN)
+    typer.secho(
+        f"Symlinks successfully created in: {TARGET_PATH}", fg=typer.colors.GREEN
+    )
+
 
 if __name__ == "__main__":
     typer.run(main)

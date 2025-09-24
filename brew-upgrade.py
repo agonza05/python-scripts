@@ -9,16 +9,23 @@
 from typing import List
 import typer
 
+
 # Helper functions
 def error_and_exit() -> None:
-    """Helper to output error code and exit application."""
-
-    typer.secho("An error has occurred.", fg=typer.colors.RED,)
+    """
+    Helper to output error code and exit application.
+    """
+    typer.secho(
+        "An error has occurred.",
+        fg=typer.colors.RED,
+    )
     raise typer.Exit(code=1)
 
-def run_cmd(cmd: List[str]) -> None:
-    """Helper to run commands in shell and returns stdout."""
 
+def run_cmd(cmd: List[str]) -> None:
+    """
+    Helper to run commands in shell and returns stdout.
+    """
     import subprocess
 
     try:
@@ -26,10 +33,12 @@ def run_cmd(cmd: List[str]) -> None:
     except subprocess.CalledProcessError:
         error_and_exit()
 
+
 # Main script
 def main() -> None:
-    """Upgrade brew packages."""
-
+    """
+    Upgrade brew packages.
+    """
     from rich.progress import Progress, SpinnerColumn, TextColumn
 
     brew_commands = ["update", "upgrade", "cleanup"]

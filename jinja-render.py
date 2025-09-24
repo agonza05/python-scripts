@@ -7,9 +7,9 @@
 # ]
 # ///
 
-from typing import List
 from typing_extensions import Annotated
 import typer
+
 
 # Main script
 def main(
@@ -41,8 +41,9 @@ def main(
         ),
     ] = "output.yml",
 ) -> None:
-    """Generate output file from template."""
-
+    """
+    Generate output file from template.
+    """
     import os
     import yaml
     from jinja2 import Environment, FileSystemLoader
@@ -64,7 +65,11 @@ def main(
     with open(output_path, "w") as f:
         f.write(rendered)
 
-    typer.secho(f"Template rendered successfully. Output file: {output_path}", fg=typer.colors.GREEN)
+    typer.secho(
+        f"Template rendered successfully. Output file: {output_path}",
+        fg=typer.colors.GREEN,
+    )
+
 
 if __name__ == "__main__":
     typer.run(main)
