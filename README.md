@@ -10,6 +10,7 @@ Python scripts for different automations
 - `install-scripts.py`: Create symbolic links for scripts.
 - `jinja-render.py`: Render Jinja templates.
 - `password-generator.py`: Generate a secure password.
+- `docker-install.py`: Install Docker.
 
 ## Automatic installation
 
