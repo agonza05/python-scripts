@@ -11,6 +11,7 @@ Python scripts for different automations
 - `jinja-render.py`: Render Jinja templates.
 - `password-generator.py`: Generate a secure password.
 - `docker-install.py`: Install Docker.
+- `certificate-generator.py`: Generate a certificate.
 
 ## Automatic installation
 

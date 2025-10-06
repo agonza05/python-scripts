@@ -223,7 +223,9 @@ def main() -> None:
             )
 
         # Add current user to docker group
-        subprocess.run(["sudo", "usermod", "-aG", "docker", getpass.getuser()], check=True)
+        subprocess.run(
+            ["sudo", "usermod", "-aG", "docker", getpass.getuser()], check=True
+        )
 
     except subprocess.CalledProcessError as e:
         error_and_exit(f"Error: {e}")
