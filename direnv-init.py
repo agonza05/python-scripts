@@ -7,6 +7,11 @@
 
 import typer
 
+DIRENV_FILE_CONTENT = """dotenv_if_exists
+source_up_if_exists
+use sourceop
+"""
+
 
 # Helper functions
 def error_and_exit() -> None:
@@ -25,11 +30,6 @@ def main() -> None:
     """
     Create a new direnv file in the current directory.
     """
-    DIRENV_FILE_CONTENT = """dotenv_if_exists
-    source_up_if_exists
-    use sourceop
-    """
-
     try:
         with open(".envrc", "w") as f:
             f.write(DIRENV_FILE_CONTENT)
