@@ -10,12 +10,11 @@ import subprocess
 import os
 import distro
 import getpass
-from typing import Optional
 import typer
 
 
 # Helper functions
-def error_and_exit(error_message: Optional[str] = "An error has occurred.") -> None:
+def error_and_exit(error_message: str | None = "An error has occurred.") -> None:
     """
     Helper to output error code and exit application.
     """

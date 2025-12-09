@@ -5,7 +5,6 @@
 # ]
 # ///
 
-from typing import List
 from typing_extensions import Annotated
 import typer
 
@@ -22,7 +21,7 @@ def error_and_exit() -> None:
     raise typer.Exit(code=1)
 
 
-def run_cmd(cmd: List[str]) -> None:
+def run_cmd(cmd: list[str]) -> None:
     """
     Helper to run commands in shell and returns stdout.
     """
